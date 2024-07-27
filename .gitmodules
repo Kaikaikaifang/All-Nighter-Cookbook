@@ -4,3 +4,6 @@
 [submodule "光通信实验/CMICode"]
 	path = 光通信实验/CMICode
 	url = git@github.com:Kaikaikaifang/CMICode.git
+[submodule "集成电路导论/BPSK"]
+	path = 集成电路导论/BPSK
+	url = git@github.com:Kaikaikaifang/BPSK.git
