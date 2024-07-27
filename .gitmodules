@@ -1,3 +1,6 @@
 [submodule "信息论实验/ConvCode"]
 	path = 信息论实验/ConvCode
 	url = git@github.com:Kaikaikaifang/ConvCode.git
+[submodule "光通信实验/CMICode"]
+	path = 光通信实验/CMICode
+	url = git@github.com:Kaikaikaifang/CMICode.git
