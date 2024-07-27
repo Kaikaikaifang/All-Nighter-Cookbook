@@ -1,0 +1,3 @@
+[submodule "信息论实验/ConvCode"]
+	path = 信息论实验/ConvCode
+	url = git@github.com:Kaikaikaifang/ConvCode.git
