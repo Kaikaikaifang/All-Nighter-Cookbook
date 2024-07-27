@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UNICODE" ?>
+<topo version="1.3.00.100">
+    <devices>
+        <dev id="0595645F-DC58-4df6-B269-819A413777EE" name="LSW" poe="0" model="S5700" settings="" system_mac="4C-1F-CC-53-14-DB" com_port="2000" bootmode="0" cx="533.000000" cy="308.000000" edit_left="560" edit_top="362">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="24" />
+            </slot>
+        </dev>
+        <dev id="A9E7AC67-FAFE-4a5c-A929-4A0A382D7B4D" name="Server1" poe="0" model="Server" settings="-domain 0 -eth 54-89-98-E8-2C-60 -ipaddr 192.168.10.12 -ipmask 255.255.255.0 -gateway 0.0.0.0 -ipv6addr 2000::2 -ipv6gateway 2000::1 -prefixlen 64 -ipv4dns 0.0.0.0 -ipv6dns 3000::1 -dnslist _www.xidian.edu.cn_192.168.10.12_ftp.xidian.edu.cn_192.168.10.12" system_mac="54-89-98-DC-61-07" com_port="0" bootmode="0" cx="738.000000" cy="314.000000" edit_left="765" edit_top="368">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="6708EAA0-5285-4451-AEF7-087D0FFBBB40" name="Client1" poe="0" model="Client" settings="-domain 0 -eth 54-89-98-DD-04-AA -ipaddr 192.168.10.11 -ipmask 255.255.255.0 -gateway 192.168.10.100 -ipv6addr 2000::2 -ipv6gateway 2000::1 -prefixlen 64 -ipv4dns 192.168.10.12 -ipv6dns 3000::1 -dnslist NULL" system_mac="54-89-98-48-80-51" com_port="0" bootmode="0" cx="344.000000" cy="376.000000" edit_left="371" edit_top="430">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+        <dev id="677DE14A-8B41-4b59-92A6-B56F0E60A6E4" name="PC1" poe="0" model="PC" settings=" -simpc_ip 192.168.10.254  -simpc_mask 255.255.255.0  -simpc_gateway 192.168.10.100  -simpc_mac 54-89-98-D0-08-70  -simpc_mc_dstip 0.0.0.0  -simpc_mc_dstmac 00-00-00-00-00-00  -simpc_dns1 192.168.10.12  -simpc_dns2 0.0.0.0  -simpc_ipv6 ::  -simpc_prefix 128  -simpc_gatewayv6 ::  -simpc_dhcp_state 1  -simpc_dhcpv6_state 1  -simpc_dns_auto_state 1  -simpc_igmp_version 1  -simpc_group_ip_start 0.0.0.0  -simpc_src_ip_start 0.0.0.0  -simpc_group_num 0  -simpc_group_step 0  -simpc_src_num 0  -simpc_src_step 0  -simpc_type MODE_IS_INCLUDE " system_mac="54-89-98-D0-08-70" com_port="0" bootmode="0" cx="354.000000" cy="214.000000" edit_left="381" edit_top="268">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="1" />
+            </slot>
+        </dev>
+    </devices>
+    <lines>
+        <line srcDeviceID="677DE14A-8B41-4b59-92A6-B56F0E60A6E4" destDeviceID="0595645F-DC58-4df6-B269-819A413777EE">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="419.232605" srcBoundRect_Y="261.077454" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="521.767395" tarBoundRect_Y="314.922546" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="6708EAA0-5285-4451-AEF7-087D0FFBBB40" destDeviceID="0595645F-DC58-4df6-B269-819A413777EE">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="0" srcBoundRect_X="411.633789" srcBoundRect_Y="388.380432" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="1" tarBoundRectIsMoved="0" tarBoundRect_X="519.366211" tarBoundRect_Y="349.619568" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+        <line srcDeviceID="0595645F-DC58-4df6-B269-819A413777EE" destDeviceID="A9E7AC67-FAFE-4a5c-A929-4A0A382D7B4D">
+            <interfacePair lineName="Copper" srcIndex="2" srcBoundRectIsMoved="0" srcBoundRect_X="603.165283" srcBoundRect_Y="336.263367" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="721.834717" tarBoundRect_Y="339.736633" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+    </lines>
+    <shapes />
+    <txttips />
+</topo>
