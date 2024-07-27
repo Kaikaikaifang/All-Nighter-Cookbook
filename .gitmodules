@@ -7,3 +7,9 @@
 [submodule "集成电路导论/BPSK"]
 	path = 集成电路导论/BPSK
 	url = git@github.com:Kaikaikaifang/BPSK.git
+[submodule "微控制系统项目设计/SodaFountain"]
+	path = 微控制系统项目设计/SodaFountain
+	url = git@github.com:Kaikaikaifang/SodaFountain.git
+[submodule "微控制系统项目设计/soda-fountain-fe"]
+	path = 微控制系统项目设计/soda-fountain-fe
+	url = git@github.com:Kaikaikaifang/soda-fountain-fe.git
