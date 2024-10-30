@@ -1,0 +1,166 @@
+COMPANY-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    enterprises, Gauge
+        FROM RFC1155-SMI
+    OBJECT-TYPE
+        FROM RFC-1212;
+
+companyMIB MODULE-IDENTITY
+    LAST-UPDATED "20241030"
+    ORGANIZATION "Network Management Corporation"
+    CONTACT-INFO
+        "Network Management, Shannxi, 2837968358@qq.com"
+    DESCRIPTION
+        "MIB module for Network Management Company, covering essential company information."
+    ::= { enterprises 1425 }
+
+String ::= OBJECT STRING
+
+companyName OBJECT-TYPE
+    SYNTAX String(SIZE(0..255))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The name of the company.(公司名称)"
+    ::= { companyMIB 1 }
+
+companyAddress OBJECT-TYPE
+    SYNTAX String(SIZE(0..255))
+    MAX-ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "The address of the company.(公司地址)"
+    ::= { companyMIB 2 }
+
+companyEstablishedDate OBJECT-TYPE
+    SYNTAX String(SIZE(0..255))
+    MAX-ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The date when the company was established.(公司成立日期)"
+    ::= { companyMIB 3 }
+
+companyLegalRepresentativeName OBJECT-TYPE
+    SYNTAX String(SIZE(0..255))
+    MAX-ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "The legal representative's name.(法定代表人姓名)"
+    ::= { companyMIB 4 }
+
+companyLegalRepresentativeGender OBJECT-TYPE
+    SYNTAX INTEGER { male(1), female(2) }
+    MAX-ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "The legal representative's gender. 1 for Male, 2 for Female.(法定代表人性别)"
+    ::= { companyMIB 5 }
+
+companyType OBJECT-TYPE
+    SYNTAX INTEGER {  limitedLiabilityCompany(1),
+                        jointStockCompany(2),
+                        soleProprietorship(3),
+                        stateOwnedEnterprise(4),
+                        other(5) }
+    MAX-ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The type of company(公司类型):
+            1 - Limited Liability Company(有限责任公司),
+            2 - Joint-Stock Company(股份有限公司),
+            3 - Sole Proprietorship(个人独资公司),
+            4 - State-Owned Enterprise(国有独资公司),
+            5 - Other(其他)."
+    ::= { companyMIB 6 }
+
+isInternetCompany OBJECT-TYPE
+    SYNTAX BOOLEAN
+    MAX-ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Whether the company is an internet company. True or False.(是否为互联网公司)"
+    ::= { companyMIB 7 }
+
+employeeCount OBJECT-TYPE
+    SYNTAX INTEGER
+    MAX-ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Total number of employees in the company.(员工人数)"
+    ::= { companyMIB 8 }
+
+currentEmployeeCount OBJECT-TYPE
+    SYNTAX Gauge
+    MAX-ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Current number of employees in the company.(当前在公司人数)"
+    ::= { companyMIB 9 }
+
+employeeTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF EmployeeEntry
+    MAX-ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "Table of employee information.(员工信息表)"
+    ::= { companyMIB 10 }
+
+employeeEntry OBJECT-TYPE
+    SYNTAX EmployeeEntry
+    MAX-ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "An entry in the employee information table."
+    INDEX { employeeId }
+    ::= { employeeTable 1 }
+
+EmployeeEntry ::= SEQUENCE {
+    employeeId             INTEGER,
+    employeeName           String,
+    employeeGender         INTEGER,
+    yearsOfService         REAL,
+    monthlySalary          INTEGER
+}
+
+employeeId OBJECT-TYPE
+    SYNTAX INTEGER
+    MAX-ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Unique identifier for each employee.(员工工号)"
+    ::= { employeeEntry 1 }
+
+employeeName OBJECT-TYPE
+    SYNTAX String
+    MAX-ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Name of the employee.(员工姓名)"
+    ::= { employeeEntry 2 }
+
+employeeGender OBJECT-TYPE
+    SYNTAX INTEGER { male(1), female(2) }
+    MAX-ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Gender of the employee. 1 for Male, 2 for Female.(性别)"
+    ::= { employeeEntry 3 }
+
+yearsOfService OBJECT-TYPE
+    SYNTAX REAL
+    MAX-ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Years of service in the company, in years.(工作时间)"
+    ::= { employeeEntry 4 }
+
+monthlySalary OBJECT-TYPE
+    SYNTAX INTEGER
+    MAX-ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "Monthly salary of the employee, in yuan.(月薪)"
+    ::= { employeeEntry 5 }
+
+END
